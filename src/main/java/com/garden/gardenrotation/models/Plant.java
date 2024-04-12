@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class plant {
+public class Plant {
 
     @Id
     @GeneratedValue
@@ -20,7 +20,7 @@ public class plant {
     private boolean perennial;
 
     //constructors
-    public plant(int id, String name, String family, int boxId, boolean perennial) {
+    public Plant(int id, String name, String family, int boxId, boolean perennial) {
         this.id = id;
         this.name = name;
         this.family = family;
@@ -28,7 +28,7 @@ public class plant {
         this.perennial = perennial;
     }
 
-    public plant() {}
+    public Plant() {}
 
     //getters & setters
     public int getId() {return id;}
