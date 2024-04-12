@@ -2,10 +2,12 @@ package com.garden.gardenrotation.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity
 public class plant {
 
+    @Id
     @GeneratedValue
     private int id;
 
