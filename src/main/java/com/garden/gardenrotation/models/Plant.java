@@ -19,6 +19,8 @@ public class Plant {
 
     private boolean perennial;
 
+    //TODO: add list
+
     //constructors
     public Plant(int id, String name, String family, int boxId, boolean perennial) {
         this.id = id;
