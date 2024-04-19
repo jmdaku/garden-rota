@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface plantRepository extends CrudRepository<Plant, Integer> {
+public interface PlantRepository extends CrudRepository<Plant, Integer> {
 
 //TODO: add methods
 }
