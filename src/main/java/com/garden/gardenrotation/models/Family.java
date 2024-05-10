@@ -1,16 +1,17 @@
 package com.garden.gardenrotation.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+//defines entries in the plant family table
 @Entity
+@Table(name = "family")
 public class Family {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(nullable = false)
     private String name;
 
     //TODO: add list
