@@ -1,22 +1,26 @@
 package com.garden.gardenrotation.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+//defines entries in the plant table
 @Entity
+@Table(name = "plant")
 public class Plant {
 
+    //primary key
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private String family;
 
     private int boxId;
 
+    @Column(nullable = false)
     private boolean perennial;
 
     //TODO: add list
