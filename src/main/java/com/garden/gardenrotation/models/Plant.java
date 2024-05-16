@@ -18,8 +18,6 @@ public class Plant {
     @Column(nullable = false)
     private String family;
 
-    private int boxId;
-
     @Column(nullable = false)
     private boolean perennial;
 
@@ -30,7 +28,6 @@ public class Plant {
         this.id = id;
         this.name = name;
         this.family = family;
-        this.boxId = boxId;
         this.perennial = perennial;
     }
 
@@ -46,10 +43,6 @@ public class Plant {
     public String getFamily() {return family;}
 
     public void setFamily(String family) {this.family = family;}
-
-    public int getBoxId() {return boxId;}
-
-    public void setBoxId(int box) {this.boxId = boxId;}
 
     public boolean isPerennial() {return perennial;}
 
