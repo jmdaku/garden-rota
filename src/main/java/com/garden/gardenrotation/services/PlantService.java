@@ -45,7 +45,7 @@ public class PlantService {
             plant.setPerennial(updatedPlant.isPerennial());
             return plantRepository.save(plant);
         } else {
-            throw new RuntimeException("Product not found");
+            throw new RuntimeException("Plant not found");
         }
     }
 
