@@ -1,46 +1,77 @@
 package com.garden.gardenrotation.controllers;
 
-import com.garden.gardenrotation.data.FamilyRepository;
-import com.garden.gardenrotation.data.PlantRepository;
-import com.garden.gardenrotation.models.Family;
+import com.garden.gardenrotation.models.Plant;
+import com.garden.gardenrotation.services.PlantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
-//TODO: add request mapping
+@RequestMapping("/plants")
 public class PlantController {
 
+    private PlantService plantService;
+    
     @Autowired
-    private PlantRepository plantRepository;
+    public PlantController(PlantService plantService) {
+        this.plantService = plantService;
+    }
 
-    @Autowired
-    private FamilyRepository familyRepository;
-
-    //http://localhost:8080/plants
-    public String displayPlantsPage(Integer familyId, Model model) {
-        //TODO: add get mapping
-
-        if (familyId != null) {
-            Optional<Family> result = familyRepository.findById(familyId);
-            if (result.isPresent()) {
-                Family family = result.get();
-                //model.addAttribute("plants", family.getPlants());
-                //TODO: fix family.getPlants() then enable
-            } else {
-                model.addAttribute("plants", plantRepository.findAll());
-            }
-        }
+    //display all plants 
+    //http://localhost:8080/plants/index
+    @GetMapping
+    public String displayPlantsPage(Model model) {
+        List<Plant> plants = plantService.getAllPlants();
+        model.addAttribute("plants", plants);
+        
         return "plants/index";
     }
 
-    //TODO: add methods for adding & deleting plants
+    //display form to add a new plant
+    //http://localhost:8080/plants/add
+    @GetMapping("/add")
+    public String displayAddPlantForm(Model model) {
+        model.addAttribute("plant", new Plant());
+        return "plants/add";
+    }
 
+    //submit new plant form
+    @PostMapping("/add")
+    public String addPlant(@ModelAttribute("plant") Plant plant) {
+        plantService.savePlant(plant);
+        return "redirect:/plants";
+    }
 
+    //display form to edit a plant
+    //http://localhost:8080/plants/edit
+    @GetMapping("/edit/{id}")
+    public String displayEditPlantForm(@PathVariable int id, Model model) {
+        Optional<Plant> plant = plantService.getPlantById(id);
+        if (plant.isPresent()) {
+            model.addAttribute("plant", plant.get());
+            return "plants/edit";
+        } else {
+            // Handle plant not found
+            return "redirect:/plants";
+        }
+    }
 
+    //submit edit plant form
+    @PostMapping("/edit/{id}")
+    public String updatePlant(@PathVariable int id, @ModelAttribute("plant") Plant updatedPlant) {
+        plantService.updatePlant(id, updatedPlant);
+        return "redirect:/plants";
+    }
 
-
+    //delete a plant
+    @GetMapping("/delete/{id}")
+    public String deletePlant(@PathVariable int id) {
+        plantService.deletePlant(id);
+        return "redirect:/plants";
+    }
 
 }
