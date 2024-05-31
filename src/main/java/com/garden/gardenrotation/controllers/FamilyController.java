@@ -20,7 +20,7 @@ public class FamilyController {
         return "families/index";
     }
 
-    //TODO: add methods for adding & deleting plants
+    //TODO: add methods for adding & deleting plant families
 
 
 
