@@ -3,9 +3,9 @@ import { Link, Route, Routes } from "react-router-dom";
 import './App.css'
 
 import Home from "../src/Home";
-import Courses from "../src/Plants";
-import Live from "../src/Families";
-import Contact from "../src/Garden";
+import Plants from "../src/Plants";
+import Families from "../src/Families";
+import Garden from "../src/Garden";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
             Plants
           </Link>
           <Link to="/family" class="list">
-            Plant Families
+            Families
           </Link>
         </ul>
       </nav>
@@ -32,7 +32,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/garden" element={<Garden />} />
         <Route path="/plant" element={<Plants />} />
-        <Route path="/family" element={<Plant Families />} />
+        <Route path="/family" element={<Families />} />
     </Routes>
    
     </div>
