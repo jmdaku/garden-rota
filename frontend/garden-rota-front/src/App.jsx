@@ -3,9 +3,9 @@ import { Link, Route, Routes } from "react-router-dom";
 import './App.css'
 
 import Home from "../src/Home";
-import Courses from "../src/Plants";
-import Live from "../src/Families";
-import Contact from "../src/Garden";
+import Plants from "../src/Plants";
+import Families from "../src/Families";
+import Garden from "../src/Garden";
 
 function App() {
   return (
