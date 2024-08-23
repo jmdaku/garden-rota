@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 
 
-
-
-const Boxes = () => 
-
-    <h1>Garden Boxes</h1>;
-
-export default Boxes;
+const Boxes = () => {
+    return (
+      <div>
+        <h1>Garden Rotation</h1>
+      </div>
+    );
+  };
+  
+  export default Boxes;
