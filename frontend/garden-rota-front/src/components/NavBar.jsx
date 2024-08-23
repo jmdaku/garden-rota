@@ -11,7 +11,7 @@ const NavBar = () => {
         <li><Link to="/boxes">Garden Boxes</Link></li>
         <li><Link to="/plants">Plants</Link></li>
         <li><Link to="/families">Plant Families</Link></li>
-      </ul>
+        </ul>
     </nav>
   );
 };
